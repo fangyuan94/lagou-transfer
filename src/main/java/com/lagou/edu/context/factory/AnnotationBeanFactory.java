@@ -288,6 +288,7 @@ public class AnnotationBeanFactory extends AbstractBeanFactory {
                 throw new RuntimeException("当前Bean id已存在");
             }
         }
+
         return super.doCreateInstance(classes,beanId);
     }
 
