@@ -22,7 +22,7 @@ public class MethodCglibInvocationHandler implements MethodInterceptor {
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         Object result = null;
 
-        if(obj.getClass().getMethod(method.getName(),method.getReturnType()).getAnnotation(Transactional.class) == null){
+        if(obj.getClass().getMethod(method.getName(),method.getParameterTypes()).getAnnotation(Transactional.class) == null){
             return method.invoke(obj,objects);
         }
 

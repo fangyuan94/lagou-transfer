@@ -23,7 +23,7 @@ public class MethodJDKInvocationHandler implements InvocationHandler {
     @Override
     public Object invoke(Object o, Method method, Object[] args) throws Throwable {
         Object result = null;
-        if(obj.getClass().getMethod(method.getName(),method.getReturnType()).getAnnotation(Transactional.class) == null){
+        if(obj.getClass().getMethod(method.getName(),method.getParameterTypes()).getAnnotation(Transactional.class) == null){
             return   method.invoke(obj,args);
         }
 
